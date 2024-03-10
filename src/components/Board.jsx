@@ -5,9 +5,16 @@ import './Board.css'
 const Board = () => {
   
     const [state,setState] = useState(Array(9).fill(null))
+    const [isXTurn,setIsXTurn] = useState(true)
     console.log(state)
+    
     const handleClick = (index)=>{
-        console.log(index)
+       let copyState = [...state]
+       copyState[index] = isXTurn?'X':'0'
+       setState(copyState)
+       setIsXTurn(!isXTurn)
+        
+
     }
   return (
     <div>
